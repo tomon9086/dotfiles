@@ -22,6 +22,6 @@ source /Users/tomo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export PATH=/Users/tomo/.pyenv/versions/3.5.2/bin:$PATH
 export PATH=/Users/tomo/.pyenv/versions/2.7.1/bin:$PATH
 
-export PATH=/Users/tomo/.custom_commands:$PATH	
+export PATH=/Users/tomo/.custom-commands:$PATH	
 
 alias ls="ls -G"
