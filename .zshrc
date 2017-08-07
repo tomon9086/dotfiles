@@ -25,6 +25,7 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 
 alias ls='ls --color=auto'
+alias chrome='google-chrome'
 
 autoload -U compinit
 compinit
@@ -46,6 +47,12 @@ PROMPT="%B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset
 RPROMPT='${vcs_info_msg_0_}'
 
 # call on every commands
+preexec() {
+	cmd=`echo $1 | sed s/sudo\ //g | tr ' ' '\n' | head -n 1`
+	echo -ne "\033]2;${PWD##*/} - ${cmd}\007"
+}
 precmd() {
 	vcs_info
+	# echo -ne "\033]00;37${USER}@${HOST%%.*}:${PWD}\007"
+	echo -ne "\033]2;${PWD##*/} - ${cmd}\007"
 }
