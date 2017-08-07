@@ -40,9 +40,12 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 # zplug
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug load
 
 # prompt
+# export PREV_EXITSTAT=😄
+# PROMPT="${PREV_EXITSTAT} %B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset_color}%}%b$ "
 PROMPT="%B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset_color}%}%b$ "
 RPROMPT='${vcs_info_msg_0_}'
 
@@ -59,4 +62,9 @@ precmd() {
 	# echo -ne "\033]00;37${USER}@${HOST%%.*}:${PWD}\007"
 	cmd=`ps $$ | tr ' ' '\n' | tail -n 1`
 	echo -ne "\033]2;${PWD##*/} - ${cmd}\007"
+	# if [ $? -eq 0 ]; then
+	#	PREV_EXITSTAT=😄
+	# else
+	#	PREV_EXITSTAT=😕
+	# fi
 }
