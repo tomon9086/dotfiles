@@ -29,7 +29,7 @@ alias ls="ls -G"
 
 # prompt
 GIT_PS1_SHOWDIRTYSTATE=true
-PROMPT="%B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset_color}%}%b$ "
+PROMPT="%B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset_color}%}%b $ "
 
 # call on every commands
 preexec() {
