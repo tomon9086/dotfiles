@@ -23,13 +23,15 @@ source /Users/tomo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # export PATH=/Users/tomo/.pyenv/versions/3.5.2/bin:$PATH
 export PATH=/Users/tomo/.pyenv/versions/2.7.1/bin:$PATH
 
+export PATH=/usr/local/mecab/bin:$PATH
+
 export PATH=/Users/tomo/.custom-commands:$PATH	
 
 alias ls="ls -G"
 
 # prompt
 GIT_PS1_SHOWDIRTYSTATE=true
-PROMPT="%B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset_color}%}%b $ "
+PROMPT="%B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset_color}%}%b$ "
 
 # call on every commands
 preexec() {
