@@ -29,6 +29,7 @@ export PATH=/usr/local/mecab/bin:$PATH
 export PATH=/Users/tomo/.custom-commands:$PATH	
 
 alias ls="ls -G"
+alias clear="/usr/bin/clear"
 
 # prompt
 GIT_PS1_SHOWDIRTYSTATE=true
