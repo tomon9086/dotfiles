@@ -50,5 +50,5 @@ PROMPT="%B%{${fg[green]}%}%n@%m%{${reset_color}%}%b:%B%{${fg[blue]}%}%~%{${reset
 preexec() {
 }
 precmd() {
-	RPROMPT="$(__git_ps1 [%s])"
+	RPROMPT=$(__git_ps1 "[%s]")
 }
