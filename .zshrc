@@ -1,5 +1,13 @@
 source ~/.dotfiles/.git-prompt
 
+# history
+setopt share_history
+setopt histignorealldups
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
 # zplug
 source ~/.zplug/init.zsh
 
@@ -32,7 +40,9 @@ export NVM_DIR="/Users/tomo/.nvm"
 export PATH="/Users/tomo/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-export PATH="$HOME/.pyenv/shims:$PATH"
+export PATH="$PATH:$HOME/.pyenv/shims"
+eval "$(rbenv init -)"
+export PATH="$PATH:$HOME/.rbenv/shims"
 export PATH=/usr/local/mecab/bin:$PATH
 export PATH=/Users/tomo/.custom-commands:$PATH
 export PATH=/usr/local/Cellar/gcc/8.1.0/bin:$PATH
@@ -52,3 +62,4 @@ preexec() {
 precmd() {
 	RPROMPT=$(__git_ps1 "[%s]")
 }
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
