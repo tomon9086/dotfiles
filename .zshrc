@@ -24,7 +24,7 @@ zplug "wbinglee/zsh-wakatime"
 # tools
 zplug "marzocchi/zsh-notify"
 # zplug "oknowton/zsh-dwim"
-# zplug "b4b4r07/enhancd", use:init.sh
+zplug "b4b4r07/enhancd", use:init.sh
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -51,6 +51,18 @@ alias ls="ls -G"
 alias clear="/usr/bin/clear"
 alias gcc="gcc-8"
 alias g++="g++-8"
+alias sed="gsed"
+alias xargs="gxargs"
+
+# gibo
+#alias 'gibo\ dump'="gibo list | sed -e 's/=== .\+ ===//g' | sed -e 's/\s\+/\n/g' | grep -v '^\s*$' | fzy | xargs -I@ gibo dump @"
+function gibo() {
+	if [ "dump" = "$1" ]; then
+		command gibo list | sed -e 's/=== .\+ ===//g' | sed -e 's/\s\+/\n/g' | grep -v '^\s*$' | fzy | xargs -I@ gibo dump @
+	else
+		command gibo $*
+	fi
+}
 
 # prompt
 GIT_PS1_SHOWDIRTYSTATE=true
