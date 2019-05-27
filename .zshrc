@@ -8,6 +8,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+# completion
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
+
 # zplug
 source ~/.zplug/init.zsh
 
@@ -73,4 +77,12 @@ preexec() {
 precmd() {
 	RPROMPT=$(__git_ps1 "[%s]")
 }
+
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -s "/Users/tomo/.gvm/scripts/gvm" ]] && source "/Users/tomo/.gvm/scripts/gvm"
+
+export EDITOR=/usr/bin/nano
+eval "$(direnv hook zsh)"
+
