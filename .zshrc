@@ -57,6 +57,7 @@ alias gcc="gcc-8"
 alias g++="g++-8"
 alias sed="gsed"
 alias xargs="gxargs"
+alias mongod="mongod -dbpath /usr/local/var/mongodb"
 
 # gibo
 function gibo() {
@@ -86,3 +87,16 @@ precmd() {
 export EDITOR=/usr/bin/nano
 eval "$(direnv hook zsh)"
 
+
+# keybinds
+# ^r
+function fzy_history() {
+	local cmd=$(history -n -r 1 | fzy --prompt="history > ")
+	if [ -n "${cmd}" ]; then
+		BUFFER="${cmd}"
+		zle reset-prompt
+		# zle accept-line
+	fi
+}
+zle -N fzy_history
+bindkey '^r' fzy_history
