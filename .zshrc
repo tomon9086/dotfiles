@@ -94,9 +94,9 @@ function fzy_history() {
 	local cmd=$(history -n -r 1 | fzy --prompt="history > ")
 	if [ -n "${cmd}" ]; then
 		BUFFER="${cmd}"
-		zle reset-prompt
-		# zle accept-line
 	fi
+	zle reset-prompt
+	# zle accept-line
 }
 zle -N fzy_history
 bindkey '^r' fzy_history
