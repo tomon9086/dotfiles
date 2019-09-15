@@ -1,5 +1,9 @@
 source ~/.dotfiles/.git-prompt
 
+# release lock of ^s & ^q keybinding
+stty stop undef
+stty start undef
+
 # history
 setopt share_history
 setopt histignorealldups
@@ -29,6 +33,7 @@ zplug "wbinglee/zsh-wakatime"
 zplug "marzocchi/zsh-notify"
 # zplug "oknowton/zsh-dwim"
 zplug "b4b4r07/enhancd", use:init.sh
+zplug "b4b4r07/emoji-cli"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
