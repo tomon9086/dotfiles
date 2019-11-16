@@ -1,4 +1,6 @@
-source ~/.dotfiles/.git-prompt
+DOTFILES_PATH="$HOME/.dotfiles"
+
+source "$DOTFILES_PATH/.git-prompt"
 
 # release lock of ^s & ^q keybinding
 stty stop undef
@@ -13,6 +15,8 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # completion
+zstyle ':completion:*:*:git:*' script "$DOTFILES_PATH/git-completion.bash"
+
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
@@ -46,6 +50,13 @@ zplug load
 export NVM_DIR="/Users/tomo/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# load nvm lazily
+# nvm() {
+# 	unset -f nvm
+# 	source "${NVM_DIR:-$HOME/.nvm}/nvm.sh"
+# 	nvm "$@"
+# }
+
 export PATH="/Users/tomo/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
@@ -55,6 +66,7 @@ export PATH="$PATH:$HOME/.rbenv/shims"
 export PATH=/usr/local/mecab/bin:$PATH
 export PATH=/Users/tomo/.custom-commands:$PATH
 export PATH=/usr/local/Cellar/gcc/8.1.0/bin:$PATH
+export PATH="$PATH:$HOME/flutter/bin"
 
 alias ls="ls -G"
 alias clear="/usr/bin/clear"
@@ -105,3 +117,15 @@ function fzy_history() {
 }
 zle -N fzy_history
 bindkey '^r' fzy_history
+
+# end profiling (start command is in ~/.zshenv)
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
+fi
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tomo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tomo/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/tomo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tomo/google-cloud-sdk/completion.zsh.inc'; fi
