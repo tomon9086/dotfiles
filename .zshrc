@@ -15,8 +15,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # completion
-zstyle ':completion:*:*:git:*' script "$DOTFILES_PATH/git-completion.bash"
-
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
