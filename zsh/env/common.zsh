@@ -1,4 +1,5 @@
 # PATH
+export PATH="$HOME/go/bin:$PATH"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$DVM_DIR/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
