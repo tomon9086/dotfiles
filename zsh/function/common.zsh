@@ -1,6 +1,10 @@
 function history() {
   if [[ "$#" == "0" ]]; then
-    fc -ln 1 | fzy
+    local cmd
+    cmd=$(fc -ln 1 | fzy)
+    if [[ -n "$cmd" ]]; then
+      print -z "$cmd"
+    fi
   else
     builtin history "$@"
   fi
