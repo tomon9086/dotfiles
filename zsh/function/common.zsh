@@ -3,7 +3,7 @@ typeset -g _HISTORY_SELECT_CMD=""
 function history() {
   if [[ "$#" == "0" ]]; then
     local cmd
-    cmd=$(fc -ln 1 | fzy)
+    cmd=$(fc -rln 1 | fzy)
     if [[ -n "$cmd" ]]; then
       _HISTORY_SELECT_CMD="$cmd"
     fi
