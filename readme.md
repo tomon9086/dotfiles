@@ -74,6 +74,25 @@ nvim/
       init.lua              # Plugin definitions
 ```
 
+## debug
+
+`DOTFILES_DEBUG` を設定すると、各モジュールのロード時間を標準エラー出力に表示します。
+
+```console
+DOTFILES_DEBUG=1 zsh
+```
+
+出力例:
+
+```
+[dotfiles]    3ms  zsh/alias/common.zsh
+[dotfiles]    1ms  zsh/alias/macos.zsh
+[dotfiles]    5ms  zsh/completion/common.zsh
+...
+```
+
+シェル起動が遅いときのボトルネック特定に使用します。
+
 ## commandline tools
 
 ### required
