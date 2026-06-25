@@ -1,5 +1,5 @@
 # anyenv
-if command -v anyenv 1>/dev/null 2>&1; then
+if command -v anyenv 1>/dev/null 2>&1 && [[ -z "${NODENV_ROOT:-}" ]]; then
   eval "$(anyenv init -)"
 fi
 
