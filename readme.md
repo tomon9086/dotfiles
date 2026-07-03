@@ -29,6 +29,15 @@ ln -s ~/.dotfiles/.gitignore_global ~/.config/git/ignore
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 ```
 
+5. Configure `pet`
+
+Add the following to the `[General]` section of `~/.config/pet/config.toml`:
+
+```toml
+Format = "$command [$description] $tags"
+SelectCmd = "fzy --prompt=Snippets: "
+```
+
 ## structure
 
 ```
@@ -105,3 +114,4 @@ DOTFILES_DEBUG=1 zsh
 
 - [custom-commands](https://github.com/tomon9086/custom-commands)
 - [gibo](https://github.com/simonwhitaker/gibo)
+- [pet](https://github.com/knqyf263/pet)
