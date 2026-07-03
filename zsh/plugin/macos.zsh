@@ -1,2 +1,3 @@
 # zplug
-source ~/.zplug/init.zsh
+: "${ZPLUG_HOME:=$HOME/.zplug}"
+source "$ZPLUG_HOME/init.zsh"
