@@ -8,3 +8,8 @@ fi
 if command -v direnv 1>/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
+
+# platformio
+if [[ -x "$HOME/.platformio/penv/bin/pio" ]]; then
+  export PATH="$HOME/.platformio/penv/bin:$PATH"
+fi
