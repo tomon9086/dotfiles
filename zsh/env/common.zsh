@@ -6,6 +6,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.custom-commands:$PATH"
 export PATH="$HOME/.gem/bin:$PATH"
 export PATH="$HOME/flutter/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # tools
 export DENO_INSTALL="$HOME/.deno"
