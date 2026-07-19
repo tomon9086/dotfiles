@@ -38,8 +38,8 @@ SAVEHIST=10000
 # Search pet snippets
 function pet_search() {
   BUFFER=$(pet search --query "$LBUFFER")
-  local status=$?
-  if [[ $status -ne 0 ]]; then
+  local exit_code=$?
+  if [[ $exit_code -ne 0 ]]; then
     return
   fi
   CURSOR=$#BUFFER
