@@ -9,6 +9,6 @@ if command -v direnv 1>/dev/null 2>&1; then
 fi
 
 # platformio
-if [[ -x "$HOME/.platformio/penv/bin/pio" ]]; then
+if [[ -x "$HOME/.platformio/penv/bin/pio" && "$PATH" != *"$HOME/.platformio/penv/bin"* ]]; then
   export PATH="$HOME/.platformio/penv/bin:$PATH"
 fi
