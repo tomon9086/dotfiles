@@ -1,7 +1,6 @@
 # anyenv
-if command -v anyenv 1>/dev/null 2>&1 && [[ -z "${DOTFILES_ANYENV_INITIALIZED:-}" ]]; then
+if command -v anyenv 1>/dev/null 2>&1 && [[ "$PATH" != *"$(anyenv root)"* ]]; then
   eval "$(anyenv init -)"
-  export DOTFILES_ANYENV_INITIALIZED=1
 fi
 
 # direnv
