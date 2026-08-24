@@ -25,6 +25,15 @@ if command -v terraform 1>/dev/null 2>&1; then
   complete -o nospace -C "$(command -v terraform)" terraform
 fi
 
+# aws cli completion
+# NOTE: aws標準の`_aws`スタブ(aws_zsh_completer.sh)はTabを1回押しただけ
+# では補完登録が反映されない(2回目から効く)ため、bashcompinit経由で
+# 直接aws_completerを登録する。
+if command -v aws_completer 1>/dev/null 2>&1; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -C "$(command -v aws_completer)" aws
+fi
+
 # Angular CLI
 if command -v ng 1>/dev/null 2>&1; then
   source <(ng completion script)

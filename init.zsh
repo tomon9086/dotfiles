@@ -25,6 +25,8 @@ else
   }
 fi
 
+_source_os "$DOTFILES_PATH/zsh/plugin"
+
 _source_os "$DOTFILES_PATH/zsh/alias"
 _source_os "$DOTFILES_PATH/zsh/completion"
 _source_os "$DOTFILES_PATH/zsh/editor"
@@ -33,7 +35,6 @@ _source_os "$DOTFILES_PATH/zsh/ghq"
 _source_os "$DOTFILES_PATH/zsh/git-prompt"
 _source_os "$DOTFILES_PATH/zsh/history"
 _source_os "$DOTFILES_PATH/zsh/keybind"
-_source_os "$DOTFILES_PATH/zsh/plugin"
 _source_os "$DOTFILES_PATH/zsh/prompt"
 _source_os "$DOTFILES_PATH/zsh/tools"
 _source_os "$DOTFILES_PATH/zsh/worktree"
