@@ -1,5 +1,9 @@
 # anyenv
-if command -v anyenv 1>/dev/null 2>&1 && [[ "$PATH" != *"$(anyenv root)"* ]]; then
+# Note: always re-run (no "already in PATH" guard) so anyenv's shims stay
+# ahead of Homebrew's PATH entries even in shells that inherit PATH from an
+# already-initialized parent (tmux panes, nested shells, etc.), since
+# brew shellenv above unconditionally re-prepends itself every time too.
+if command -v anyenv 1>/dev/null 2>&1; then
   eval "$(anyenv init -)"
 fi
 
