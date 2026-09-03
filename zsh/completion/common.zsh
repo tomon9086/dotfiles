@@ -3,8 +3,18 @@ COMPLETION_SCRIPTS_DIR="$DOTFILES_PATH/zsh/completion"
 # Add scripts dir to fpath for custom completions (_git, etc.)
 fpath=("$COMPLETION_SCRIPTS_DIR/scripts" $fpath)
 
+# Add Homebrew completions before compinit snapshots available functions.
+for dir in /opt/homebrew/share/zsh/site-functions /usr/local/share/zsh/site-functions; do
+  [[ -d "$dir" ]] && fpath=("$dir" $fpath)
+done
+
 # Initialize completion system
 autoload -Uz compinit && compinit
+
+# gh completion
+if command -v gh 1>/dev/null 2>&1; then
+  source <(gh completion -s zsh)
+fi
 
 # pnpm completion
 if command -v pnpm 1>/dev/null 2>&1; then
