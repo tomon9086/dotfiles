@@ -104,6 +104,30 @@ DOTFILES_DEBUG=1 zsh
 
 ## commandline tools
 
+### vvsay（VOICEVOX 読み上げ）
+
+```zsh
+vvsay "こんにちは"
+vvsay -s 3 "話者 ID を指定して読み上げ"
+printf 'こんにちは' | vvsay
+```
+
+エンジンの応答を確認し、必要なら次のコンテナを起動して、準備完了後に音声合成・再生を順番に実行します。
+
+```sh
+docker run --rm -d --name voicevox -p 127.0.0.1:50021:50021 voicevox/voicevox_engine:cpu-latest
+```
+
+Docker 自体は事前に起動してください。起動済みのエンジンを再利用し、起動途中なら最大 60 秒待ちます
+（初回のイメージ取得時間は別）。再生が終わると一時音声ファイルを削除します。
+macOS では `afplay`、Linux では `paplay` または `aplay` を使います。`curl` が必要です。
+
+話者 ID の既定値は `1`。`export VOICEVOX_SPEAKER=3` で変更できます。
+ID は `curl -fsS http://127.0.0.1:50021/speakers` で取得する各スタイルの `id` です。
+API の詳細は [VOICEVOX ENGINE](https://github.com/VOICEVOX/voicevox_engine#http-リクエストで音声合成するサンプルコード) を参照してください。
+エンジンは次回のために起動したまま残します。停止は `docker stop voicevox`。
+ヘルプは `vvsay --help`。
+
 ### required
 
 - [zplug](https://github.com/zplug/zplug)
