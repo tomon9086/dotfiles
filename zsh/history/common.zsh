@@ -9,7 +9,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # + command: save snippet to pet
-+() {
+# 関数名を "+" にすると `typeset -f +` が全関数名の列挙と解釈され、
+# Claude Code のシェルスナップショットが壊れる（全関数が引数なしで実行される）ため alias で提供する
+function pet_save() {
   if ! command -v pet &>/dev/null; then
     echo "pet is not installed"
     return 1
@@ -34,6 +36,7 @@ SAVEHIST=10000
     return $exit_code
   fi
 }
+alias -- +=pet_save
 
 # Search pet snippets
 function pet_search() {
